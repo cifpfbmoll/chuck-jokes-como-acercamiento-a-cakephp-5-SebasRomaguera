@@ -1,164 +1,84 @@
-# Chuck Jokes - CakePHP 5# 🎭 Chuck Jokes - CakePHP 5 + SQLite
+# 🎭 Chuck Jokes - CakePHP 5 + SQLite
 
+Aplicación de chistes de Chuck Norris desarrollada con CakePHP 5.
 
+## 🚀 Instalación y Configuración
 
-## Pasos para configurar el proyecto en localAplicación de chistes de Chuck Norris desarrollada con CakePHP 5.
+### ⚡ Requisitos Previos
 
+- **PHP 8.1+** (recomendado 8.2 o superior)
+- **XAMPP** o servidor web con PHP
+- **Composer 2.x**
+- **Git** para clonar el repositorio
 
-
-### 1. Clonar e instalar dependencias## 🚀 Instalación y Configuración
+### � Paso 1: Clonar el Repositorio
 
 ```bash
-
-git clone https://github.com/cifpfbmoll/chuck-jokes-como-acercamiento-a-cakephp-5-SebasRomaguera.git### ⚡ Requisitos Previos
-
+git clone https://github.com/cifpfbmoll/chuck-jokes-como-acercamiento-a-cakephp-5-SebasRomaguera.git
 cd chuck-jokes-como-acercamiento-a-cakephp-5-SebasRomaguera
+```
 
-composer install- **PHP 8.1+** (recomendado 8.2 o superior)
+### 📦 Paso 2: Instalar Dependencias
 
-```- **XAMPP** o servidor web con PHP
+```bash
+composer install
+```
 
-- **Composer 2.x**
-
-### 2. Solucionar error de extensión intl- **Git** para clonar el repositorio
-
-
-
-Si aparece el error: "Database driver `Cake\Database\Driver\Sqlite` cannot be used", es porque falta la extensión `intl`.### � Paso 1: Clonar el Repositorio
-
-
-
-1. **Localizar php.ini:**```bash
-
-   ```bashgit clone https://github.com/cifpfbmoll/chuck-jokes-como-acercamiento-a-cakephp-5-SebasRomaguera.git
-
-   php --inicd chuck-jokes-como-acercamiento-a-cakephp-5-SebasRomaguera
-
-   ``````
-
-
-
-2. **Editar php.ini** (generalmente en `C:\xampp\php\php.ini`):### 📦 Paso 2: Instalar Dependencias
-
-   ```ini
-
-   # Buscar esta línea:```bash
-
-   ;extension=intlcomposer install
-
-   ```
-
-   # Cambiarla a (quitar el ;):
-
-   extension=intl## 🔧 Solución de Problemas
-
-   ```
+## 🔧 Solución de Problemas
 
 ### ❌ Error: "Database driver `Cake\Database\Driver\Sqlite` cannot be used"
 
-3. **Verificar que funciona:**
+Este error indica que faltan extensiones PHP. Sigue estos pasos:
 
-   ```bashEste error indica que faltan extensiones PHP. Sigue estos pasos:
+### � Paso 3: Habilitar Extensión `intl`
 
-   php -m | findstr -i intl
-
-   ```### � Paso 3: Habilitar Extensión `intl`
-
-
-
-### 3. Corregir rutas de base de datos1. **Localizar el archivo `php.ini`:**
-
+1. **Localizar el archivo `php.ini`:**
    ```bash
-
-En `config/app_local.php` cambiar las rutas a formato Windows:   php --ini
-
+   php --ini
+   ```
+   
+2. **Editar `php.ini`** (generalmente en `C:\xampp\php\php.ini`):
+   ```ini
+   # Buscar esta línea:
+   ;extension=intl
+   
+   # Cambiarla a (sin el punto y coma):
+   extension=intl
    ```
 
-```php   
+3. **Verificar que se habilitó correctamente:**
+   ```bash
+   php -m | findstr -i intl
+   ```
 
-'Datasources' => [2. **Editar `php.ini`** (generalmente en `C:\xampp\php\php.ini`):
+### 🗄️ Paso 4: Configurar Base de Datos
 
-    'default' => [   ```ini
-
-        'driver' => Cake\Database\Driver\Sqlite::class,   # Buscar esta línea:
-
-        'database' => ROOT . DS . 'tmp' . DS . 'database.sqlite',   ;extension=intl
-
-        'url' => env('DATABASE_URL', null),   
-
-    ],   # Cambiarla a (sin el punto y coma):
-
-    'test' => [   extension=intl
-
-        'driver' => Cake\Database\Driver\Sqlite::class,   ```
-
-        'database' => ROOT . DS . 'tmp' . DS . 'tests.sqlite',
-
-        'url' => env('DATABASE_TEST_URL', null),3. **Verificar que se habilitó correctamente:**
-
-    ],   ```bash
-
-],   php -m | findstr -i intl
-
-```   ```
-
-
-
-### 4. Ejecutar migraciones### 🗄️ Paso 4: Configurar Base de Datos
-
-```bash
-
-.\bin\cake.bat migrations migrateEl archivo `config/app_local.php` debe tener rutas compatibles con Windows:
-
-```
+El archivo `config/app_local.php` debe tener rutas compatibles con Windows:
 
 ```php
+## 🎯 Uso de la Aplicación
 
-### 5. Iniciar servidor## 🎯 Uso de la Aplicación
+### 🚀 Paso 6: Ejecutar el Servidor
 
 ```bash
-
-php -S localhost:8000 -t webroot### 🚀 Paso 6: Ejecutar el Servidor
-
+php -S localhost:8000 -t webroot
 ```
 
-```bash
+### 🌐 Acceder a la Aplicación
 
-### 6. Ver chistesphp -S localhost:8000 -t webroot
-
-Abrir en el navegador: `http://localhost:8000/jokes/random````
-
-
-
-## Comandos útiles### 🌐 Acceder a la Aplicación
-
-
-
-```bash- **Página principal**: http://localhost:8000
-
-# Ver estado de migraciones- **Chistes aleatorios**: http://localhost:8000/jokes/random
-
-.\bin\cake.bat migrations status
+- **Página principal**: http://localhost:8000
+- **Chistes aleatorios**: http://localhost:8000/jokes/random
 
 ### 🎭 Obtener Chistes
 
-# Limpiar cachés
-
-.\bin\cake.bat cache clear_all1. **Desde el navegador**: Visita `http://localhost:8000/jokes/random`
-
+1. **Desde el navegador**: Visita `http://localhost:8000/jokes/random`
 2. **Con cURL**: 
+   ```bash
+   curl http://localhost:8000/jokes/random
+   ```
 
-# Ver base de datos   ```bash
+## 📁 Estructura del Proyecto
 
-sqlite3 tmp/database.sqlite   curl http://localhost:8000/jokes/random
-
-.tables   ```
-
-SELECT * FROM jokes;
-
-.quit## 📁 Estructura del Proyecto
-
-```
 ```
 chuck-jokes/
 ├── 📁 config/          # Configuración de la aplicación
