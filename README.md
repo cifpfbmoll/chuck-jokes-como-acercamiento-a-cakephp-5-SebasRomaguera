@@ -1,6 +1,7 @@
 # Chuck Jokes - CakePHP 5# 🎭 Chuck Jokes - CakePHP 5 + SQLite
 
-
+![Captura de pantalla](![Uploading image.png…]()
+)
 
 ## Pasos para configurar el proyecto en localAplicación de chistes de Chuck Norris desarrollada con CakePHP 5.
 
